@@ -46,11 +46,60 @@
 - コミット前に `git status` と `git diff` で変更内容を確認する
 - コミットメッセージには変更の「何を」「なぜ」を含める
 
+## デプロイ先
+
+- **GitHub Pages**: https://calcio10.github.io/task-board/
+- **リポジトリ**: https://github.com/calcio10/task-board
+- デプロイコマンド: `npm run deploy`（`gh-pages` ブランチへビルド成果物を公開）
+
+## 技術スタック
+
+| カテゴリ | 技術 | バージョン |
+|---|---|---|
+| UIライブラリ | React | ^18.3.1 |
+| ビルドツール | Vite | ^6.3.5 |
+| Reactプラグイン | @vitejs/plugin-react | ^4.3.4 |
+| デプロイ | gh-pages | ^6.3.0 |
+| 言語 | JavaScript (JSX) | - |
+| スタイリング | CSS Modules (plain CSS) | - |
+| データ永続化 | localStorage | - |
+
+## コンポーネント命名規約
+
+### ファイル名
+
+- コンポーネントファイルは **PascalCase** + `.jsx` 拡張子
+  - 例: `App.jsx`, `TaskList.jsx`, `TaskItem.jsx`
+- スタイルファイルはコンポーネント名と同名の `.css`
+  - 例: `App.css`, `TaskList.css`
+- ユーティリティ・フック類は **camelCase** + `.js`
+  - 例: `useLocalStorage.js`, `taskUtils.js`
+
+### コンポーネント定義
+
+- 関数コンポーネントのみ使用（クラスコンポーネントは使わない）
+- コンポーネント名は **PascalCase**
+- propsの変数名は **camelCase**
+
+```jsx
+function TaskItem({ taskId, text, done, onToggle, onDelete }) { ... }
+```
+
+### 変数・関数名
+
+| 種別 | 規約 | 例 |
+|---|---|---|
+| state変数 | camelCase（名詞） | `tasks`, `input` |
+| stateセッター | `set` + PascalCase | `setTasks`, `setInput` |
+| イベントハンドラ | `handle` + 対象 + イベント | `handleKeyDown`, `handleSubmit` |
+| 操作関数 | 動詞 + 対象 | `addTask`, `deleteTask`, `toggleTask` |
+
 ## 開発環境
 
 - **OS**: Windows 11
 - **Shell**: PowerShell / Bash
 - **エディタ**: VS Code + Claude Code
+- **Node.js**: v24
 
 ## コーディング規約
 
