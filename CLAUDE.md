@@ -50,7 +50,8 @@
 
 - **GitHub Pages**: https://calcio10.github.io/task-board/
 - **リポジトリ**: https://github.com/calcio10/task-board
-- デプロイコマンド: `npm run deploy`（`gh-pages` ブランチへビルド成果物を公開）
+- **手動デプロイ**: `npm run deploy`（`gh-pages` ブランチへビルド成果物を公開）
+- **自動デプロイ**: `main` ブランチへのプッシュで GitHub Actions が自動実行（`.github/workflows/deploy.yml`）
 
 ## 技術スタック
 
